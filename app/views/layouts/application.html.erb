@@ -9,14 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
-     <%= render 'layouts/header' %>
-
-    <main>
-      <p id="notice"><%= notice %></p>
-    </main>
-     <%= yield %>
-     <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+       <main>
+        <p id="notice"><%= notice %></p>
+        <% if user_signed_in? %>
+          <%= render 'searches/searche' %>
+        <% end %>
+       </main>
+       <%= yield %>
+       <%= render 'layouts/footer' %>
+    </div>
 
   </body>
 </html>
